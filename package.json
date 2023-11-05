@@ -18,9 +18,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "sd": "yarn bsdebug && react-scripts start",
+    "sp": "yarn bs && react-scripts start",
     "build": "yarn bs && react-scripts build",
-    "bs": "cd wasm-lib && wasm-pack build --target web --out-dir ../pkg",
+    "bs": "cd wasm-lib && wasm-pack build --release --target web --out-dir ../pkg && cd .. && yarn add ./pkg",
+    "bsdebug": "cd wasm-lib && wasm-pack build --target web --out-dir ../pkg && cd .. && yarn add ./pkg",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

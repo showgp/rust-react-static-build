@@ -67,5 +67,7 @@ wasm 的内容简单梳理, 主要是如何将 wasm module 同 react 等前端�
         - `yarn build`
         - 找到 build 目录, 压缩后拖到 CF 部署为 Pages 即可.
 1. 如何对应不同的构建配置(debug, release)?
+1. 使用 web-sys 的尝试: 引入是可以的. 每次修改了 rust 侧后, 需要调用一次 `yarn add ./pkg`.
+1. 引入 wee 内存分配器
 1. 如何部署?
 1. 使用 `npm init rust-webpack` 这套便捷的模板是没有添加任何框架的, 但正常也可以用同一套逻辑处理应.

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import init, { add } from "wasm-lib";
+import init, { add, draw } from "wasm-lib";
 
 function App() {
   const [ans, setAns] = useState(0);
@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     init().then(() => {
       setAns(add(1, 3));
+      draw();
     });
   }, []);
 
