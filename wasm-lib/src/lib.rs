@@ -1,3 +1,6 @@
+mod julia_set;
+
+use julia_set::julia_base64_inner;
 use wasm_bindgen::JsCast;
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
@@ -7,6 +10,12 @@ use web_sys::HtmlCanvasElement;
 #[cfg(feature = "wee_alloc")]
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
+#[wasm_bindgen]
+pub fn julia(width: u32, height: u32, real: f32, imaginary: f32) -> JsValue {
+    let base64str = julia_base64_inner(width, height, real, imaginary);
+    JsValue::from_str(&base64str)
+}
 
 #[wasm_bindgen]
 pub fn add(left: usize, right: usize) -> usize {
